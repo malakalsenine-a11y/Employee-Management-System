@@ -52,7 +52,25 @@
 
         }
 
-       
+
+        // ===============================
+        //2. Create Derived Classes (A. Developer)
+        // ===============================
+
+        public class Developer : Employee
+        {
+            public string ProgrammingLanguage { get; set; }
+
+            // Override Work method
+
+            public override void work()
+            {
+                Console.WriteLine("Developer is writing code");
+            }
+        }
+
+
+
 
 
 
