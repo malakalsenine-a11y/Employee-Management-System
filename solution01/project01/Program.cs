@@ -1,4 +1,7 @@
-﻿namespace project01
+﻿using System;
+using System.Collections.Generic;
+
+namespace project01
 {
     internal class Program
     {
@@ -21,19 +24,18 @@
                 set
                 {
                     if (value > 0)
-                    
                         id = value;
-                    }
                 }
+            }
 
-                // Property for Salary with validation
+            // Property for Salary with validation
 
-                public double Salary
+            public double Salary
             {
                 get { return salary; }
                 set
                 {
-                    if (value >= 0 ) 
+                    if (value >= 0)
                         salary = value;
                 }
             }
@@ -45,7 +47,7 @@
 
             // Virtual method (Polymorphism)
 
-            public virtual void work()
+            public virtual void Work()
             {
                 Console.WriteLine("Employee is working");
             }
@@ -53,9 +55,9 @@
         }
 
 
-        // ===============================
+        // =============================================
         //2. Create Derived Classes (A. Developer)
-        // ===============================
+        // =============================================
 
         public class Developer : Employee
         {
@@ -63,16 +65,16 @@
 
             // Override Work method
 
-            public override void work()
+            public override void Work()
             {
                 Console.WriteLine("Developer is writing code");
             }
         }
 
 
-        // ===============================
+        // ==============================================
         //2. Create Derived Classes (B. Designer)
-        // ===============================
+        // ==============================================
 
         public class Designer : Employee
         {
@@ -80,22 +82,48 @@
 
             // Override Work method
 
-            public override void work()
+            public override void Work()
             {
                 Console.WriteLine("Designer is creating UI designs");
             }
+        }
 
-
-
-
-
-
-
-
-
-            static void Main(string[] args)
+        static void Main(string[] args)
         {
 
+            // ===============================
+            //3.Demonstrate Polymorphism
+            // ===============================
+
+            List<Employee> employees = new List<Employee>();
+
+
+            Developer dev = new Developer
+            {
+                Id = 1,
+                Name = "Malak",
+                Department = "IT",
+                Salary = 1000,
+                ProgrammingLanguage = "C#"
+            };
+
+            Designer des = new Designer
+            {
+                Id = 2,
+                Name = "Anoud",
+                Department = "UI/UX",
+                Salary = 900,
+                DesignTool = "Figma"
+            };
+
+            employees.Add(dev);
+            employees.Add(des);
+
+            // Loop through employees
+            foreach (var emp in employees)
+            {
+                emp.Work(); // Polymorphism happens here
+            }
         }
     }
 }
