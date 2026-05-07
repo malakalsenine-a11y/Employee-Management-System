@@ -70,13 +70,30 @@
         }
 
 
+        // ===============================
+        //2. Create Derived Classes (B. Designer)
+        // ===============================
+
+        public class Designer : Employee
+        {
+            public string DesignTool { get; set; }
+
+            // Override Work method
+
+            public override void work()
+            {
+                Console.WriteLine("Designer is creating UI designs");
+            }
 
 
 
 
 
 
-        static void Main(string[] args)
+
+
+
+            static void Main(string[] args)
         {
 
         }
